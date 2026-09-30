@@ -135,7 +135,7 @@ public class CalculadoraGUI extends javax.swing.JFrame {
             javax.swing.JOptionPane.ERROR_MESSAGE);
             
         }
-        }
+        
     }//GEN-LAST:event_btnCalcularActionPerformed
 
     /**
