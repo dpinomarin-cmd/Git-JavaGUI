@@ -8,14 +8,14 @@ package vista;
  *
  * @author usuario
  */
-public class CalculadoraGUI extends javax.swing.JFrame {
+public class CalculadoraJavaGUI extends javax.swing.JFrame {
     
-    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(CalculadoraGUI.class.getName());
+    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(CalculadoraJavaGUI.class.getName());
 
     /**
-     * Creates new form CalculadoraGUI
+     * Creates new form CalculadoraJavaGUI
      */
-    public CalculadoraGUI() {
+    public CalculadoraJavaGUI() {
         initComponents();
     }
 
@@ -29,12 +29,12 @@ public class CalculadoraGUI extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        txtnombre = new javax.swing.JTextField();
-        txtNota1 = new javax.swing.JTextField();
-        txtNota2 = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
+        txtnombre = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
+        txtNota1 = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
+        txtNota2 = new javax.swing.JTextField();
         btnCalcular = new javax.swing.JToggleButton();
         lblresultado = new javax.swing.JLabel();
 
@@ -73,12 +73,12 @@ public class CalculadoraGUI extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(14, 14, 14)
                 .addComponent(lblresultado, javax.swing.GroupLayout.PREFERRED_SIZE, 551, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(39, Short.MAX_VALUE))
+                .addContainerGap(117, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(23, 23, 23)
+                .addGap(18, 18, 18)
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -95,7 +95,7 @@ public class CalculadoraGUI extends javax.swing.JFrame {
                     .addComponent(btnCalcular, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(lblresultado, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(98, Short.MAX_VALUE))
+                .addContainerGap(88, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -114,28 +114,28 @@ public class CalculadoraGUI extends javax.swing.JFrame {
 
     private void btnCalcularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCalcularActionPerformed
         // TODO add your handling code here:
-        
+
         try{
-           //capturar los datos
-           String nombre = txtnombre.getText().trim().toLowerCase();
-           double nota1 = Double.parseDouble(txtNota1.getText());
-           double nota2 = Double.parseDouble(txtNota2.getText());
-           //instanciar el objeto
-           modelo.Estudiante estudiante = new modelo.Estudiante(nombre,nota1,nota2);
-           //pedirle al objeto que trabaje y actualice la interfaz
-           String mensaje =String.format("Estudiante %s | definitiva: %.2f(%s)"
-                   ,estudiante.getNombre()
-                   ,estudiante.calcularDefinitiva()
-                   ,estudiante.obtenerEstado());
-           lblresultado.setText(mensaje);
+            //capturar los datos
+            String nombre = txtnombre.getText().trim().toLowerCase();
+            double nota1 = Double.parseDouble(txtNota1.getText());
+            double nota2 = Double.parseDouble(txtNota2.getText());
+            //instanciar el objeto
+            modelo.Estudiante estudiante = new modelo.Estudiante(nombre,nota1,nota2);
+            //pedirle al objeto que trabaje y actualice la interfaz
+            String mensaje =String.format("Estudiante %s | definitiva: %.2f(%s)"
+                ,estudiante.getNombre()
+                ,estudiante.calcularDefinitiva()
+                ,estudiante.obtenerEstado());
+            lblresultado.setText(mensaje);
         }catch(NumberFormatException e){
             javax.swing.JOptionPane.showMessageDialog(this,
-            "por favor ingresar valores numericos validos",
-            "ERROR DE FORMATO",
-            javax.swing.JOptionPane.ERROR_MESSAGE);
-            
+                "por favor ingresar valores numericos validos",
+                "ERROR DE FORMATO",
+                javax.swing.JOptionPane.ERROR_MESSAGE);
+
         }
-        
+
     }//GEN-LAST:event_btnCalcularActionPerformed
 
     /**
@@ -160,6 +160,7 @@ public class CalculadoraGUI extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
+        java.awt.EventQueue.invokeLater(() -> new CalculadoraJavaGUI().setVisible(true));
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -174,4 +175,3 @@ public class CalculadoraGUI extends javax.swing.JFrame {
     private javax.swing.JTextField txtnombre;
     // End of variables declaration//GEN-END:variables
 }
-
