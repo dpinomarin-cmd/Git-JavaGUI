@@ -50,6 +50,7 @@ public class CalculadoraGUI extends javax.swing.JFrame {
         jLabel3.setText("Escriba la nota de matematicas");
 
         btnCalcular.setText("Calcular");
+        btnCalcular.addActionListener(this::btnCalcularActionPerformed);
 
         lblresultado.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
 
@@ -111,6 +112,32 @@ public class CalculadoraGUI extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btnCalcularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCalcularActionPerformed
+        // TODO add your handling code here:
+        
+        try{
+           //capturar los datos
+           String nombre = txtnombre.getText().trim().toLowerCase();
+           double nota1 = Double.parseDouble(txtNota1.getText());
+           double nota2 = Double.parseDouble(txtNota2.getText());
+           //instanciar el objeto
+           modelo.Estudiante estudiante = new modelo.Estudiante(nombre,nota1,nota2);
+           //pedirle al objeto que trabaje y actualice la interfaz
+           String mensaje =String.format("Estudiante %s | definitiva: %.2f(%s)"
+                   ,estudiante.getNombre()
+                   ,estudiante.calcularDefinitiva()
+                   ,estudiante.obtenerEstado());
+           lblresultado.setText(mensaje);
+        }catch(NumberFormatException e){
+            javax.swing.JOptionPane.showMessageDialog(this,
+            "por favor ingresar valores numericos validos",
+            "ERROR DE FORMATO",
+            javax.swing.JOptionPane.ERROR_MESSAGE);
+            
+        }
+        }
+    }//GEN-LAST:event_btnCalcularActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -132,8 +159,7 @@ public class CalculadoraGUI extends javax.swing.JFrame {
         }
         //</editor-fold>
 
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(() -> new CalculadoraGUI().setVisible(true));
+        /* Create and display the form *
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
