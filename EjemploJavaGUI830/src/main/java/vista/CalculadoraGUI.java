@@ -159,7 +159,7 @@ public class CalculadoraGUI extends javax.swing.JFrame {
         }
         //</editor-fold>
 
-        /* Create and display the form *
+        /* Create and display the form */
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -174,3 +174,4 @@ public class CalculadoraGUI extends javax.swing.JFrame {
     private javax.swing.JTextField txtnombre;
     // End of variables declaration//GEN-END:variables
 }
+
